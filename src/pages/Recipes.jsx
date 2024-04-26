@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, Image, SimpleGrid, Button, VStack, Heading, Link as RouterLink } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
+
 import { FaUtensils } from 'react-icons/fa';
 
 const categories = {
