@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Image, SimpleGrid, Button, VStack, Heading, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
+import { Box, Text, Image, SimpleGrid, Button, VStack, Heading, Link } from '@chakra-ui/react';
 import { FaUtensils } from 'react-icons/fa';
 
 const categories = {
@@ -42,14 +42,6 @@ const categories = {
 };
 
 const Recipes = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedRecipe, setSelectedRecipe] = React.useState(null);
-
-  const handleRecipeClick = (recipe) => {
-    setSelectedRecipe(recipe);
-    onOpen();
-  };
-
   return (
     <Box p={5}>
       <Heading as="h1" size="xl" mb={6}>Cupcake Recipes</Heading>
@@ -62,26 +54,26 @@ const Recipes = () => {
                 <Image src={recipe.imageUrl} alt={recipe.name} borderRadius="md" />
                 <Text fontSize="xl" fontWeight="bold" mt={2}>{recipe.name}</Text>
                 <Text mt={2}>{recipe.description}</Text>
-                <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} onClick={() => handleRecipeClick(recipe)}>
-                  View Recipe
-                </Button>
+                {recipe.id === 1 && (
+                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={Link} to="/recipes/classic-vanilla">
+                    View Recipe
+                  </Button>
+                )}
+                {recipe.id === 2 && (
+                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={Link} to="/recipes/rich-chocolate">
+                    View Recipe
+                  </Button>
+                )}
+                {recipe.id === 3 && (
+                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={Link} to="/recipes/strawberry-shortcake">
+                    View Recipe
+                  </Button>
+                )}
               </Box>
             ))}
           </SimpleGrid>
         </VStack>
       ))}
-      {selectedRecipe && (
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>{selectedRecipe.name}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Text>{selectedRecipe.details}</Text>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      )}
     </Box>
   );
 };
