@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Text, Image, SimpleGrid, Button, VStack, Heading, Link } from '@chakra-ui/react';
+import { Box, Text, Image, SimpleGrid, Button, VStack, Heading, Link as RouterLink } from '@chakra-ui/react';
+
 import { FaUtensils } from 'react-icons/fa';
 
 const categories = {
@@ -55,17 +56,17 @@ const Recipes = () => {
                 <Text fontSize="xl" fontWeight="bold" mt={2}>{recipe.name}</Text>
                 <Text mt={2}>{recipe.description}</Text>
                 {recipe.id === 1 && (
-                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={Link} to="/recipes/classic-vanilla">
+                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={RouterLink} to="/recipes/classic-vanilla">
                     View Recipe
                   </Button>
                 )}
                 {recipe.id === 2 && (
-                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={Link} to="/recipes/rich-chocolate">
+                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={RouterLink} to="/recipes/rich-chocolate">
                     View Recipe
                   </Button>
                 )}
                 {recipe.id === 3 && (
-                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={Link} to="/recipes/strawberry-shortcake">
+                  <Button rightIcon={<FaUtensils />} colorScheme="pink" variant="solid" mt={3} as={RouterLink} to="/recipes/strawberry-shortcake">
                     View Recipe
                   </Button>
                 )}
