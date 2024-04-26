@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Text, Image, SimpleGrid, Button, VStack, Heading, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import { FaUtensils } from 'react-icons/fa';
 
